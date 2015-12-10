@@ -1,6 +1,6 @@
 from flask import Flask
 from flask import render_template
-import urllib
+import urllib, codecs
 import subprocess, os
 
 def baixa_e_converte(url):
@@ -14,18 +14,22 @@ def baixa_e_converte(url):
         print "Converting..."
         subprocess.call(["pdftotext", "data/" + lei])
         print "Conversion complete!"
-    return open("data/" + lei[0:-3] + 'txt', 'r').read()
+    return codecs.open("data/" + lei[0:-3] + 'txt', 'r', encoding='utf-8').read()
 
 app = Flask(__name__)
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return render_template('index.html')
 
 @app.route("/pl/<pl>")
 def teste(pl):
-    texto = baixa_e_converte("http://camaramunicipalsp.qaplaweb.com.br/iah/fulltext/leis/" + pl + ".pdf")
-    return "<pre>" + texto + "</pre>"
+    texto = baixa_e_converte("http://camaramunicipalsp.qaplaweb.com.br/iah/fulltext/leis/L" + pl + ".pdf")
+    law = {
+        "id" : pl,
+        "body" : texto
+    }
+    return render_template('law.html', law=law)
 
 if __name__ == "__main__":
     app.debug = True

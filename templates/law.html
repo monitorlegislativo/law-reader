@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/reset.css') }}">
+<link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/typography.css') }}">
+<style type="text/css">
+	.main {  margin:0 auto;  width:740px;  }
+	pre {
+	width: 740px;                          /* specify width  */
+	white-space: pre-wrap;                 /* CSS3 browsers  */
+	white-space: -moz-pre-wrap !important; /* 1999+ Mozilla  */
+	white-space: -pre-wrap;                /* Opera 4 thru 6 */
+	white-space: -o-pre-wrap;              /* Opera 7 and up */
+	word-wrap: break-word;                 /* IE 5.5+ and up */
+	/* overflow-x: auto; */                /* Firefox 2 only */
+	/* width: 99%; */		       /* only if needed */
+	line-height: 1.6em;
+	font-size: 16px;
+	}
+
+</style>
+</head>
+<title>Lei {{law.id}}</title>
+ </head>
+ <body>
+ 	<div class="main">
+ 		<pre>{{law.body|safe}}</pre>
+ 	</div>
+ </body>
+ </html>
