@@ -4,6 +4,7 @@
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/reset.css') }}">
 <link rel=stylesheet type=text/css href="{{ url_for('static', filename='css/typography.css') }}">
 <style type="text/css">
+	body { background-color: #FFF8DC; }
 	.main {  margin:0 auto;  width:740px;  }
 	pre {
 	width: 740px;                          /* specify width  */
@@ -16,6 +17,11 @@
 	/* width: 99%; */		       /* only if needed */
 	line-height: 1.6em;
 	font-size: 16px;
+	background-color: #FFF8DC;
+	}
+
+	.back {
+		float:right;
 	}
 
 </style>
@@ -24,7 +30,9 @@
  </head>
  <body>
  	<div class="main">
+ 	<a class="back" href="{{url_for('index')}}">voltar</a>
  		<pre>{{law.body|safe}}</pre>
+ 		<a href="{{law.url}}">PDF Original</a>
  	</div>
  </body>
  </html>

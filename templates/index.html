@@ -1,7 +1,44 @@
 <html>
 <head>
+<title>Leitor de Leis - PMSP</title>
+<style>
+	* {
+		margin:0;
+		padding:0;
+	}
+	body { background-color: #FFF8DC; }
+
+	.container {
+		margin:10 auto;
+		width:50%;
+		background-color: #FFF8DC;
+	}
+	.busca input {
+		width:93%;
+		height:40px;
+		font-size:1.2em;
+	}
+	.busca button {
+		width:5%;
+		height:40px;
+		top:0;
+		float:right;
+		min-width: 30px;
+	}
+	.tag {
+		clear:both;
+		font-size: 0.8em;
+		float:right;
+	}
+</style>
 </head>
 <body>
-	<input type="text">
+	<div class="container">
+		<form class="busca" action="/check" method="get">
+		<input type="text" name="numero" placeholder="Número da lei">
+		<button>Go!</button>
+		</form>
+		<span class="tag">Busca em leis do munícipio de São Paulo</span>
+	</div>
 </body>
 </html>
